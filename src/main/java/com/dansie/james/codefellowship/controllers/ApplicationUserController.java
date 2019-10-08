@@ -5,7 +5,9 @@ import com.dansie.james.codefellowship.models.ApplicationUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.view.RedirectView;
 
@@ -37,5 +39,12 @@ public class ApplicationUserController {
     public RedirectView logout(){
 
         return new RedirectView("/");
+    }
+
+    @GetMapping("/user/{id}")
+    public String getUserInfo(Model m, @PathVariable long id){
+        ApplicationUser gottenUser =  applicationUserRepository.getOne(id);
+        m.addAttribute("user", gottenUser);
+        return "userDetails";
     }
 }
