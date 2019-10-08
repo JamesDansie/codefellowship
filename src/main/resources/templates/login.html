@@ -7,6 +7,9 @@
   <title>Log In</title>
 </head>
 <body>
+  <header>
+      <div th:replace="fragments/common :: nav"></div>
+  </header>
   <h1>Log In</h1>
   <form action="/login" method="POST">
     <label for="username">Username</label>

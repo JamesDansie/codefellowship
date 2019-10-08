@@ -4,15 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Code Fellow Ship</title>
+  <title>Common Fragments</title>
 </head>
 <body>
-  <header>
-      <div th:replace="fragments/common :: nav"></div>
-  </header>
-  <main>
-    <h1>We made it past Spring :D</h1>
-    <h2>Hello, [[${username}]]</h2>
-  </main>
+  <nav th:fragment="nav">
+    <a href="/">Home</a>
+    <a href="/login">Log In</a>
+    <a href="/logout">Log Out</a>
+    <a href="/registration">Sign Up</a>
+  </nav>
 </body>
 </html>
