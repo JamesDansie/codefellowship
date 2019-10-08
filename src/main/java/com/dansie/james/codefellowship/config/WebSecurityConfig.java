@@ -41,11 +41,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/signup").permitAll()
                 .anyRequest().permitAll()
                 .and()
-                .formLogin()
-                .loginPage("/login")
-                .defaultSuccessUrl("/")
+                    .formLogin()
+                    .loginPage("/login")
+                    .defaultSuccessUrl("/")
                 .and()
-                .logout();
+                    .logout()
+                    .logoutSuccessUrl("/");
+
     }
 
     @Override

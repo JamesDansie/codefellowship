@@ -32,4 +32,10 @@ public class ApplicationUserController {
     public String getLoginPage(){
         return "login";
     }
+
+    @GetMapping("/logout")
+    public RedirectView logout(){
+
+        return new RedirectView("/");
+    }
 }
