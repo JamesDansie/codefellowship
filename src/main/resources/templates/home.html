@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Code Fellow Ship</title>
+  <th:block th:replace="fragments/common :: css"></th:block>
 </head>
 <body>
   <header>
@@ -13,6 +14,14 @@
   <main>
     <h1>We made it past Spring :D</h1>
     <h2>Hello, [[${username}]]</h2>
+
+    <div sec:authorize="isAuthenticated()">
+      I am authorized
+    </div>
+
+    <div sec:authorize="isAnonymous()">
+      I am not authorized
+    </div>
   </main>
 </body>
 </html>

@@ -5,13 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Common Fragments</title>
+  <th:block th:fragment="css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="/style.css" rel="stylesheet" type="text/css"/>
+  </th:block>
 </head>
 <body>
-  <nav th:fragment="nav">
-    <a href="/">Home</a>
-    <a href="/login">Log In</a>
-    <a href="/logout">Log Out</a>
-    <a href="/registration">Sign Up</a>
-  </nav>
+  <section th:fragment="nav">
+      <nav sec:authorize="isAuthenticated()">
+          <a href="/">Home</a>
+          <a href="/profile">Profile</a>
+          <a href="/logout">Log Out</a>
+        </nav>
+      
+        <nav sec:authorize="isAnonymous()">
+          <h2>Log in silly hobbit</h2>
+          <a href="/">Home</a>
+          <a href="/login">Log In</a>
+          <a href="/registration">Sign Up</a>
+        </nav>
+  </section>
+
 </body>
 </html>
