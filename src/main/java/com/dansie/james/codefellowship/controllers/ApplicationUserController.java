@@ -36,7 +36,12 @@ public class ApplicationUserController {
         Authentication authentication = new UsernamePasswordAuthenticationToken(newUser, null, new ArrayList<>());
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
-        return new RedirectView("/");
+        return new RedirectView("/profile");
+    }
+
+    @GetMapping("/registration")
+    public String getRegistration(){
+        return "registration";
     }
 
     @GetMapping("/login")

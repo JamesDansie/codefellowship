@@ -10,9 +10,23 @@
   <header>
     <div th:replace="fragments/common :: nav"></div>
   </header>
+  
+  <h1>One Profile to Rule them All...</h1>
   <h3 th:text="${user.username}"></h3>
   <h4 th:text="${'The profile of ' + user.nameFirst + ' ' + user.nameLast}"></h4>
   <p th:text="${user.bio}"></p>
+
+  <th:block th:each="post: ${user.posts}">
+    <div>
+      <p th:text="${post.body}"></p>
+      <p th:text="${post.createdAt}"></p>
+    </div>
+  </th:block>
+
+  <form action="/addPost" method="POST">
+    <label for="postBody">Post</label><input type="text" name="postBody">
+    <input type="submit" value="Make Post">
+  </form>
 
 </body>
 </html>
