@@ -13,6 +13,14 @@
   <main>
     <h1>We made it past Spring :D</h1>
     <h2>Hello, [[${username}]]</h2>
+
+    <div sec:authorize="isAuthenticated()">
+      I am authorized
+    </div>
+
+    <div sec:authorize="isAnonymous()">
+      I am not authorized
+    </div>
   </main>
 </body>
 </html>
