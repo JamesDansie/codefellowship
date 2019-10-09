@@ -69,4 +69,20 @@ public class ApplicationUser implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
+    public String getNameFirst() {
+        return nameFirst;
+    }
+
+    public String getNameLast() {
+        return nameLast;
+    }
+
+    public String getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public String getBio() {
+        return bio;
+    }
 }
