@@ -2,6 +2,7 @@ package com.dansie.james.codefellowship.controllers;
 
 import com.dansie.james.codefellowship.models.ApplicationUser;
 import com.dansie.james.codefellowship.models.ApplicationUserRepository;
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +13,7 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import java.security.Principal;
 import java.util.List;
+import java.util.Set;
 
 @Controller
 public class ApplicationUserListController {
@@ -42,5 +44,14 @@ public class ApplicationUserListController {
         applicationUserRepository.save(userFollowing);
 
         return new RedirectView("/profile");
+    }
+
+    @GetMapping("/feed")
+    public String getFeed(Model m, Principal p){
+        ApplicationUser currentUser = applicationUserRepository.findByUsername(p.getName());
+        Set<ApplicationUser> followList = currentUser.getUsersIFollow();
+
+        m.addAttribute("listOfUsersIFollow", followList);
+        return "feed";
     }
 }

@@ -121,4 +121,12 @@ public class ApplicationUser implements UserDetails {
                 ", usersThatFollowMe=" + usersThatFollowMe +
                 '}';
     }
+
+    public Set<ApplicationUser> getUsersIFollow() {
+        return usersIFollow;
+    }
+
+    public Set<ApplicationUser> getUsersThatFollowMe() {
+        return usersThatFollowMe;
+    }
 }
