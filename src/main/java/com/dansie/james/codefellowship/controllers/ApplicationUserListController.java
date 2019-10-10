@@ -40,7 +40,7 @@ public class ApplicationUserListController {
 
         userFollowing.followUser(userToBeFollowed);
         applicationUserRepository.save(userFollowing);
-        
+
         return new RedirectView("/profile");
     }
 }

@@ -110,4 +110,15 @@ public class ApplicationUser implements UserDetails {
     public long getId() {
         return id;
     }
+
+    @Override
+    public String toString() {
+        return "ApplicationUser{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", posts=" + posts +
+                ", usersIFollow=" + usersIFollow +
+                ", usersThatFollowMe=" + usersThatFollowMe +
+                '}';
+    }
 }
