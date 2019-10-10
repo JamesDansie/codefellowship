@@ -14,7 +14,22 @@
   </header>
   <main>
     <h3 th:text="${user.username}"></h3>
-    <!-- <p th:text="${user.bio}"></p> -->
+    <p th:text="${user.bio}"></p>
+
+    <h4>Most recent posts</h4>
+    <th:block th:each="post: ${user.posts}">
+      <div>
+        <p th:text="${post.body}"></p>
+        <p th:text="${post.createdAt}"></p>
+      </div>
+    </th:block>
+
+    <form action="/follow" method="POST">
+      <input type="hidden" th:name="id" th:value="${user.id}" />
+      <input type="submit" value="Follow Person" />
+    </form>
+
+    </form>
   </main>
 </body>
 </html>
