@@ -31,12 +31,14 @@ public class ApplicationUserListController {
     public String getUserList(Model m, Principal p){
         List<ApplicationUser> userList = applicationUserRepository.findAll();
         m.addAttribute("userList", userList);
+        m.addAttribute("currUser", applicationUserRepository.findByUsername(p.getName()));
         return "allUsers";
     }
 
     @PostMapping("/follow")
     public RedirectView followUser(String id, Principal p){
         Long idL = Long.parseLong(id);
+
         ApplicationUser userFollowing = applicationUserRepository.findByUsername(p.getName());
         ApplicationUser userToBeFollowed = applicationUserRepository.getOne(idL);
 

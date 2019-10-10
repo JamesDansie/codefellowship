@@ -15,7 +15,7 @@
   <main>
     <h1>List of Awesome Hobbit People</h1>
     <th:block th:each="user: ${userList}">
-        <div>
+        <div th:if="${user != currUser}">
           <a th:href="${'/user/' + user.id}"><h4 th:text="${user.username}"></h4></a>
           <p th:text="${user.bio}"></p>
         </div>

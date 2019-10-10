@@ -12,8 +12,9 @@
   <header>
     <div th:replace="fragments/common :: nav"></div>
   </header>
+  
   <main>
-      <h4>Most recent posts</h4>
+      <h1>Most recent posts</h1>
       <th:block th:each="user: ${listOfUsersIFollow}">
         <div>
           <h3 th:text="${'Recent posts from ' + user.username}"></h3>
@@ -22,8 +23,6 @@
             <span th:text="${'Post from ' + post.createdAt}"></span>
             <p></p>
           </th:block>
-          <!-- <p th:text="${post.body}"></p>
-          <p th:text="${post.createdAt}"></p> -->
         </div>
       </th:block>
   </main>
