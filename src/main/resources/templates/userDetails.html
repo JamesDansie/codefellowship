@@ -14,7 +14,7 @@
   </header>
   <main>
     <h3 th:text="${user.username}"></h3>
-    <p th:text="${user.bio}"></p>
+    <p class="bio" th:text="${user.bio}"></p>
 
     <h4>Most recent posts</h4>
     <th:block th:each="post: ${user.posts}">

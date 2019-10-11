@@ -16,7 +16,7 @@
   <h1>One Profile to Rule them All...</h1>
   <h3 th:text="${user.username}"></h3>
   <h4 th:text="${'The profile of ' + user.nameFirst + ' ' + user.nameLast}"></h4>
-  <p th:text="${user.bio}"></p>
+  <p class="bio" th:text="${user.bio}"></p>
 
   <th:block th:each="post: ${user.posts}">
     <div>
