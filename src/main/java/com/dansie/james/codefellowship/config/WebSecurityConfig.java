@@ -45,7 +45,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .defaultSuccessUrl("/profile")
                 .and()
                     .logout()
-                    .logoutSuccessUrl("/");
+                    .logoutSuccessUrl("/")
+                        .deleteCookies("JSESSIONID");
 
     }
 
